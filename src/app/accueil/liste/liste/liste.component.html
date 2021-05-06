@@ -1,1 +1,38 @@
-<p>liste works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12 btn-add">
+            <button class="btn btn-primary btn-block" (click)="addItem()">Ajouter</button>
+        </div>
+        <div class="col-12">
+            <div class="text-center"><h3>Liste</h3></div>
+            <table class="table table-bordered table-striped table-hover ">
+                <thead>
+                    <tr>
+                        <th scope="col" *ngFor="let head of columnHeader">{{head.display}}</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr scope="col" *ngFor="let item of items">
+                        <td *ngFor="let head of columnHeader">
+                            <span *ngIf="head.name!='oBnom'">{{item[head.name]}}</span>
+                            <span *ngIf="head.name=='oBnom'">{{item['nom'].text}}</span>
+                            <span *ngIf="head.name=='oBpronom'">{{item['nom'].prononciation}}</span>
+                        </td>
+                        <td scope="col">
+                            <!--<button class="btn " (click)="detailItem(item)">
+                                <i class="fa fa-eye"></i>
+                            </button> -->
+                            <button class="btn " (click)="updateItem(item)">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                            <button class="btn " (click)="deleteItem(item)">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
