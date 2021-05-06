@@ -8,7 +8,6 @@ import { GraphiqueComponent } from './graphique/graphique/graphique.component';
 import { ListeComponent } from './liste/liste/liste.component';
 import { PersonneFormComponent } from './formulaires/personne-form/personne-form.component';
 import { ClanFormComponent } from './formulaires/clan-form/clan-form.component';
-import { OrgchartModule } from '@dabeng/ng-orgchart';
 import { ElectronService } from 'ngx-electron';
 import { ChartTextComponent } from './graphique/chart-text/chart-text.component';
 import { EtapeOneComponent } from './formulaires/personne-form/etape-one/etape-one.component';
@@ -20,6 +19,8 @@ import { EtapeSixComponent } from './formulaires/personne-form/etape-six/etape-s
 import { SuppressionFormComponent } from './formulaires/suppression-form/suppression-form.component';
 import { InputListComponent } from './formulaires/personne-form/input-list/input-list.component';
 import { GojsAngularModule } from 'gojs-angular';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,9 @@ import { GojsAngularModule } from 'gojs-angular';
      EtapeFiveComponent,
      EtapeSixComponent,
      InputListComponent],
-  imports: [CommonModule,  CookieModule.forRoot(),SharedModule, AccueilRoutingModule, OrgchartModule,GojsAngularModule],
+  imports: [CommonModule, FormsModule,  BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,CookieModule.forRoot(),SharedModule, AccueilRoutingModule, GojsAngularModule],
   providers: [ElectronService],
 })
 export class AccueilModule {}

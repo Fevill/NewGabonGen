@@ -4,46 +4,94 @@ html, body {
   padding: 0;
 
   height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  color: #2b1941;
 }
 
-/* CAN (MUST) BE REMOVED ! Sample Global style */
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  background: url(./assets/background.jpg) no-repeat center fixed;
-  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
-  background-size: cover; /* version standardisée */
-
-  .title {
-    color: white;
-    margin: 0;
-    padding: 50px 20px;
-  }
-
-  a {
-    color: #fff !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #ed3330;
-    padding: 20px;
-    border-radius: 5px;
-    display: inline-block;
-    border: none;
-    transition: all 0.4s ease 0s;
-
-    &:hover {
-      background: #fff;
-      color: #ed3330 !important;
-      letter-spacing: 1px;
-      -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-      -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-      box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
-      transition: all 0.4s ease 0s;
-    }
-  }
+h1{
+  color: #380A73;
+  font-size: 24px;
+  font-weight: 600;
 }
+
+h3{
+  color: #3D235D;
+  font-size: 20px;
+  font-weight: 700;
+}
+.nav-tabs a.nav-link.active{
+  background-color: #380A73;;
+}
+
+.nav-tabs a.nav-link:hover{
+  border-color: #A98FC9;
+}
+.form-control:focus {
+  border-color: #A98FC9;
+  box-shadow: 0 0 0 0.2rem #dad0e7;
+} 
+.nav-tabs a.nav-link{
+  outline: none;
+}
+
+a.nav-link.active h1{
+  color: white;
+}
+
+.card,.nav-tabs,.form-control{
+  border-color: #A98FC9;
+}
+.table .btn  {
+  color: #380A73;
+
+}
+
+.btn-primary {
+  background-color: #380A73;
+  border-color: #380A73;
+}
+
+.btn-primary:hover {
+  background-color:  #532d85;;
+  border-color: #A98FC9;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  background-color: #532d85;
+  border-color: #A98FC9;
+  box-shadow: 0 0 0 0.2rem #dad0e7;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  background-color: #532d85;
+  border-color: #380A73;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  background-color: #A98FC9;
+  border-color: #532d85;
+}
+
+.table thead th,.table-bordered, .table-bordered td, .table-bordered th {
+  border-color: #A98FC9;;
+}
+
+.nondef .title{
+  background-color: #380A73 !important;
+}
+
+
+.nondef .content{
+  border-color: #380A73 !important;
+}
+
+.orgchart .lines  {
+  border-color: #380A73 !important;
+}
+.orgchart {
+  background-image:none !important;
+}
+
+
+
