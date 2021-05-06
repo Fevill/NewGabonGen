@@ -1,1 +1,17 @@
-<p>suppression-form works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="clan-form col-6">
+            <div class="card supp-form">
+                <div class="card-header">Supprimer</div>
+                <div class="card-body">
+                    <div *ngIf="path==='clan'"> {{item.nomClan}}</div>
+                    <div *ngIf="path==='pers'"> {{item.nom.text}} - {{item.prenoms}}</div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn" (click)="annuler()">Annuler</button>
+                    <button class="btn btn-primary" (click)="supprimer()">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
