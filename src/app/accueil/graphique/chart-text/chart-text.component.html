@@ -1,1 +1,23 @@
-<p>chart-text works!</p>
+<div class="chart-text">
+    <div *ngIf="initial!=true" class="chart-text-title" data-toggle="collapse"
+        [attr.href]="this.getCollapse(nodeChart.id)">
+
+        <span class="chart-alert alert alert-info" *ngIf="nodeChart.id==1">{{nodeChart?.name}} {{nodeChart?.title}}</span>
+        <span *ngIf="nodeChart.nodeChildren && nodeChart.nodeChildren?.length>0 && nodeChart.index"><i class="fa fa-users"></i>
+            {{nodeChart?.name}} {{nodeChart?.title}} engendra ({{nodeChart.nodeChildren.length}}) enfant<span *ngIf="nodeChart?.nodeChildren?.length>1">s</span> </span>
+    </div>
+
+    <div [id]="collapse(nodeChart.id)" class="collapse">
+        <ul style="list-style-type:none;">
+            <li *ngFor='let c of  nodeChart.nodeChildren'>
+                <div>{{c?.name}} {{c?.title}}</div>
+            </li>
+        </ul>
+        <hr>
+        <ul style="list-style-type:none;">
+            <li *ngFor='let c of  nodeChart.nodeChildren'>
+                <app-chart-text [nodeChart]="c" initial='true'></app-chart-text>
+            </li>
+        </ul>
+    </div>
+</div>
