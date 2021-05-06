@@ -1,1 +1,33 @@
-<p>clan-form works!</p>
+<div class="container">
+    <br>
+    <h3 class="text-center">Formulaire</h3>
+    <div class="row justify-content-center">
+        <div class="clan-form col-6">
+            <div class="card">
+                <div class="card-header">Clan</div>
+                <form [formGroup]="clanForm" novalidate>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Nom du clan</label>
+                            <input type="text" class="form-control" formControlName="nomClan"/>
+                            <div *ngIf="clanForm.controls['nomClan'].invalid && (clanForm.controls['nomClan'].dirty || clanForm.controls['nomClan'].touched)" class="alert alert-dclaner">
+                            <div *ngIf="clanForm.controls['nomClan'].errors.required">
+                            Le nom du clan est recquis.
+                            </div>
+                        </div></div>
+
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" formControlName="descriptionClan">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn" (click)="annuler()">Annuler</button>
+                        <button class="btn btn-primary" (click)="valider()" [disabled]="clanForm.pristine || clanForm.invalid" >Valider</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
