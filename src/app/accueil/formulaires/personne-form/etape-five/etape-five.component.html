@@ -1,1 +1,7 @@
-<p>etape-five works!</p>
+<!-- Saisi des professions -->
+<div class="card">
+    <div class="card-header">{{title}}</div>
+    <div class="card-body">
+        <app-input-list [title]="title" [inputControl]='inputControl' [inputType]='inputType' [outList]="list" (listEvent)="handleListEvent($event) "></app-input-list>
+    </div>
+</div>

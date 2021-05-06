@@ -1,1 +1,36 @@
-<p>etape-six works!</p>
+<div class="card">
+    <div class="card-header">Information complémentaire</div>
+    <form [formGroup]="sixForm" novalidate>
+        <div class="card-body">
+
+            <!-- Saisi du status marital-->
+            <div class="form-group">
+                <label>Le status marital</label>
+                <select class="form-control" formControlName="status">
+                    <option disabled [ngValue]=null>Choisir ...</option>
+                    <option *ngFor="let s of this.STATUS_MARITAL" [ngValue]="s">{{s}}</option>
+                </select>
+            </div>
+
+            <!-- Saisi de la durée de vie  -->
+            <!-- Date de naissance-->
+            <div class="form-group">
+                <label>Date de naissance</label>
+                <input class="form-control" type="date" max="{{dateMax|date:'yyyy-MM-dd'}}" formControlName="dateNaissance">
+            </div>
+
+            <!-- Date de déces-->
+            <div class="form-group ">
+                <label>Date de déces</label>
+                <input class="form-control" type="date" min="{{dateMin|date:'yyyy-MM-dd'}}" formControlName="dateDeces">
+            </div>
+
+            <!-- Saisi du commentaire-->
+            <div class="form-group">
+                <label>Commentaire</label>
+                <textarea class="form-control " formControlName="comment"></textarea>
+            </div>
+
+        </div>
+    </form>
+</div>

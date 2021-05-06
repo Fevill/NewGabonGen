@@ -1,1 +1,7 @@
-<p>etape-three works!</p>
+<!-- Saisi des partenaires -->
+<div class="card">
+    <div class="card-header">{{title}}</div>
+    <div class="card-body">
+        <app-input-list [title]="title" [outList]="list" [inputControl]='inputControl' [inputType]='inputType' (listEvent)="handleListEvent($event) "></app-input-list>
+    </div>
+</div>

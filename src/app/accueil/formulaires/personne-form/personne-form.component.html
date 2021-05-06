@@ -1,1 +1,54 @@
-<p>personne-form works!</p>
+<div class="form-gb">
+    <div>
+        <br>
+        <h3 class="text-center">Formulaire</h3>
+    </div>
+    <div>
+        <ul class="nav justify-content-center">
+            <li *ngFor="let e of this.ETAPES" class=" btn nav-item">
+                <a [ngClass]="[!(e.valide)?'not-valide ':'' ,(e.id === index)?'active nav-link':'nav-link']"
+                    (click)="navigation(e.id)" aria-disabled="true">{{e.id}} - {{e.title}}</a>
+            </li>
+        </ul>
+    </div>
+    <div  class="gb-div">
+         <i *ngIf="personne.photo==null" class="gb-img fa fa-user-circle"></i>
+         <img *ngIf="personne.photo!=null" class="gb-img" [src]="personne.photo">
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="pers-form col-6">
+            <div [ngSwitch]="index">
+                <app-etape-one *ngSwitchCase="1" [inputData]="inputDataOne" (dataEvent)="handleDataEvent($event,'one')">
+                </app-etape-one>
+                <app-etape-two *ngSwitchCase="2" [inputData]="inputDataTwo" (dataEvent)="handleDataEvent($event,'two')">
+                </app-etape-two>
+                <app-etape-three *ngSwitchCase="3" [inputData]="inputDataThree"
+                    (dataEvent)="handleDataEvent($event,'three')"></app-etape-three>
+                <!-- Retrait de choix des enfants dans la création d'une personne
+                <app-etape-four *ngSwitchCase="4" [inputData]="inputDataFour" (dataEvent)="handleDataEvent($event,'four')"></app-etape-four> -->
+                <app-etape-five *ngSwitchCase="4" [inputData]="inputDataFive"
+                    (dataEvent)="handleDataEvent($event,'five')"></app-etape-five>
+                <app-etape-six *ngSwitchCase="5" [inputData]="inputDataSix" (dataEvent)="handleDataEvent($event,'six')">
+                </app-etape-six>
+            </div>
+            <br>
+            <div class="btn-block">
+                <button class="btn float-right" [disabled]="index==endIndex ? true : null"
+                    (click)="suivant()">Suivant <i class="fa fa-arrow-right"></i></button>
+                <button class="btn float-left" [disabled]="index==startIndex ? true : null"
+                    (click)="precedent()">
+                    <i class="fa fa-arrow-left"></i>Précedent</button>
+            </div>
+            <br>
+            <br>
+            <div class="card">
+                <div class="card-header">
+                    <button class="btn " (click)="annuler()">Annuler</button>
+                    <button class="btn btn-primary" (click)="valide()"
+                        [disabled]="!ETAPES[0].valide || !ETAPES[1].valide">Valider</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

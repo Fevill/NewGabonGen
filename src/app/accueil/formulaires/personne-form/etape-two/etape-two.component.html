@@ -1,1 +1,62 @@
-<p>etape-two works!</p>
+<div class="card">
+    <div class="card-header">Identité</div>
+    <form [formGroup]="twoForm" novalidate>
+        <div class="card-body">
+
+            <!-- Saisi de la photo -->
+            <div class="form-group">
+                <label>Photo</label>
+                <input class="form-control" type="file" accept="image/png, image/jpeg"  (change)="handleFileInput($event.target.files)">
+            </div>
+
+            <!-- Saisi du nom -->
+            <div class="form-group">
+                <label>Le nom</label>
+                <input class="form-control" type="text" formControlName="nom">
+                <div *ngIf="twoForm.controls['nom'].invalid 
+                && (twoForm.controls['nom'].dirty 
+                || twoForm.controls['nom'].touched)" class="alert alert-dclaner">
+                    <div *ngIf="twoForm.controls['nom'].errors.required">
+                        Le nom est requis.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Saisi de la prononciation du nom -->
+            <div class="form-group">
+                <label>La prononciation du nom</label>
+                <input class="form-control" type="text" formControlName="prononom">
+            </div>
+
+            <!-- Saisi du prénom -->
+            <div class="form-group">
+                <label>Le prénom</label>
+                <input class="form-control" type="text" formControlName="prenom">
+            </div>
+
+
+            <!-- Saisi du sexe -->
+            <div class="form-group">
+                <label>Le sexe</label>
+                <select class="form-control" formControlName="sexe">
+                    <option value="H">Homme</option>
+                    <option value="F">Femme</option>
+                    <option value="A">Autres</option>
+                </select>
+                <div *ngIf="twoForm.controls['sexe'].invalid 
+                && (twoForm.controls['sexe'].dirty 
+                || twoForm.controls['sexe'].touched)" class="alert alert-dclaner">
+                    <div *ngIf="twoForm.controls['sexe'].errors.required">
+                        Le sexe est requis.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Saisi de l'age -->
+            <div class="form-group">
+                <label>L'age</label>
+                <input class="form-control" type="number" formControlName="age">
+            </div>
+        </div>
+    </form>
+</div>

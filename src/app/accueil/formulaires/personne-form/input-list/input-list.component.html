@@ -1,1 +1,38 @@
-<p>input-list works!</p>
+<!-- Saisi des paretenaires -->
+<div class="form-group">
+    <label>{{title}}</label>
+    <div class="row">
+        <div class="col-sm-9">
+            <input *ngIf="inputControl=='input'" class="form-control" placeholder="Saisir la valeur ..." type="text" [(ngModel)]="value">
+            <div *ngIf="inputControl=='select'" class="form-group">
+                <select class="form-control" [(ngModel)]="value">
+                    <option disabled [ngValue]=null>Choisir ...</option>
+                    <option *ngFor="let personne of this.personnes" [ngValue]=personne>{{personne?.nom?.text}} -
+                        {{personne?.prenoms}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-3"><button [disabled]="this.value===''" class="btn btn-primary btn-block" (click)="ajouter()">Ajouter</button></div>
+    </div>
+    <br>
+    <div>
+        Liste
+    </div>
+    <div *ngIf="!this.outList.length" class="card">
+        <div class="text-center">La liste est vide.</div>
+    </div>
+    <ul *ngIf="this.outList.length " class="list-group ">
+        <li *ngFor="let item of this.outList " class="list-group-item d-flex justify-content-between align-items-center ">
+            <span *ngIf="inputType=='string'|| inputType=='enfant'">
+                {{item.value}}
+            </span>
+            <span *ngIf="inputType=='partenaire' ">
+               {{item?.value?.nom?.text}} - {{item?.value?.prenoms}}
+            </span>
+            <button class="btn btn-danger badge badge-pill " (click)="supprimer(item) ">
+                <i class="fa fa-trash "></i>
+            </button>
+        </li>
+    </ul>
+</div>

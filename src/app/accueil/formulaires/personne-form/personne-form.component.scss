@@ -1,0 +1,22 @@
+ul li a.active {
+    font-weight: bold;
+}
+
+ul li a {
+    color: black;
+}
+
+ul li a.not-valide {
+    color: red;
+}
+
+.gb-img{    
+    height: 100px;
+    width: 100px;
+    margin: 10px auto;
+    color: #A98FC9;
+    display: block;
+    font-size: 100px;
+    border-radius: 5px;
+}
+
