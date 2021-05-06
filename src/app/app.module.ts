@@ -16,6 +16,7 @@ import { DetailModule } from './detail/detail.module';
 
 import { AppComponent } from './app.component';
 
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
