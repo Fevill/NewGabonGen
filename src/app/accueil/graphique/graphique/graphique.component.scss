@@ -1,0 +1,23 @@
+.card{
+
+}
+.card-chart,
+.card-chart-text{
+    height:  78vh;
+}
+
+.card-chart-text{
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.card-chart{
+    overflow: hidden;
+}
+
+
+.myDiagramDiv {
+    background: #dad0e7;
+    width: 73vw;
+    height:  78vh;
+  }

@@ -1,1 +1,34 @@
-<p>graphique works!</p>
+<div class="container-fluid">
+    <br>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary btn-block" (click)="exportImg()">Export Image</button>
+        </div>
+        <div class="offset-1 col-6">
+            <!-- Choix du clan -->
+            <div class="form-group">
+                <select class="form-control" (change)="selectclan()"  [(ngModel)]="currentClan">
+                    <option disabled [ngValue]=null>Choisir un clan</option>
+                    <option *ngFor="let clan of this.clans" [ngValue]=clan>{{clan.nom}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-9">
+            <div class="card card-chart">
+                <div class="row">
+                    <div class="col-12">
+                      <div id="myDiagramDiv" class="myDiagramDiv"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card card-chart-text">
+            <app-chart-text [nodeChart]="dataSource"></app-chart-text></div>
+        </div>   
+       
+    </div>
+</div>
