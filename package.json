@@ -1,11 +1,10 @@
 {
-  "name": "angular-electron",
-  "version": "9.0.7",
-  "description": "Angular 11 with Electron (Typescript + SASS + Hot Reload)",
+  "name": "gabon-gen",
+  "version": "1.0.0",
+  "description": "Gestion de génération gabonnaise",
   "homepage": "https://github.com/maximegris/angular-electron",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "AKAJ"
   },
   "keywords": [
     "angular",
@@ -41,7 +40,17 @@
     "lint": "ng lint"
   },
   "dependencies": {
-    "@electron/remote": "1.0.4"
+    "@electron/remote": "1.0.4",
+    "bootstrap": "4.6.0",
+    "font-awesome": "4.7.0",
+    "gojs": "2.1.39",
+    "gojs-angular": "1.0.17",
+    "jquery": "3.6.0",
+    "ngx-electron": "2.2.0",
+    "popper.js": "1.16.1",
+    "reflect-metadata": "0.1.13",
+    "sqlite3": "5.0.2",
+    "typeorm": "0.2.32"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "11.1.1",
@@ -105,5 +114,8 @@
   },
   "browserslist": [
     "chrome 83"
-  ]
+  ],
+  "_moduleAliases": {
+    "@entities/": "./src/app/entity"
+  }
 }

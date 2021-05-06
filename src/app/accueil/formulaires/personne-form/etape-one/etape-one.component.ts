@@ -18,6 +18,8 @@ export class EtapeOneComponent implements OnInit {
   oneForm: FormGroup;
   clans: Clan[] = [];
   parents: Personne[] = [];
+  PARENT = new Personne();
+  
 
   @Output()
   dataEvent = new EventEmitter<OutputData>();
@@ -27,7 +29,9 @@ export class EtapeOneComponent implements OnInit {
 
   cl = new Clan;
   constructor(private _fb: FormBuilder,private _clanService: ClanService,private _personneService: PersonneService) {
-  
+    this.PARENT.id=0;
+    this.PARENT.prenoms = "Nom définit" ;
+    this.PARENT.nom.text = "Nom définit" ;
   }
 
   createForm() {
@@ -73,7 +77,7 @@ export class EtapeOneComponent implements OnInit {
 
   getPersonne() {
     console.log("Récuperer la liste des personnes")
-    this._personneService.getPersonnes().subscribe(data => { this.parents = data;});    
+    this._personneService.getPersonnes().subscribe(data => { this.parents = data; console.log(this.parents)});    
   }
 
   /**
@@ -87,7 +91,7 @@ export class EtapeOneComponent implements OnInit {
   }
 
   selectPersonneValue(list:any[],index:string,id:any){
-    let res = list.find(i=>i.id==this.inputData.find(d=>d.id==index)?.value.id);
+    let res = list.find(i=>i?.id==this.inputData.find(d=>d?.id==index)?.value?.id);
     return res;
   }
 

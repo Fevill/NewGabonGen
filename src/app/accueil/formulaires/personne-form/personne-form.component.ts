@@ -179,7 +179,12 @@ export class PersonneFormComponent {
     /*Saisi des parents */
     this.personne.pere = this.inputDataOne.find(d => d.id == 'pere')?.value;
     this.personne.mere = this.inputDataOne.find(d => d.id == 'mere')?.value;
-
+    if(this.personne.pere.id==0){
+      this.personne.pere = null
+    }
+    if(this.personne.mere.id==0){
+      this.personne.mere = null
+    }
 
     /*Saisi des partenaires */
     this.personne.partenaires = [];

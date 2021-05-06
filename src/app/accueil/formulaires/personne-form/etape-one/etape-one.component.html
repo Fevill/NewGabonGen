@@ -25,6 +25,8 @@
                     <option disabled [ngValue]=null>Choisir un père</option>
                     <option *ngFor="let parent of sexefilter(this.parents, ['H','A'])" [ngValue]=parent>{{parent?.nom?.text}} - {{parent?.prenoms}}
                     </option>
+                    <option  [ngValue]=PARENT>{{PARENT?.nom?.text}} - {{PARENT?.prenoms}}
+                    </option>
                 </select>
                 <div *ngIf="oneForm.controls['pere'].invalid && (oneForm.controls['pere'].dirty || oneForm.controls['pere'].touched)" class="alert alert-dclaner">
                     <div *ngIf="oneForm.controls['pere'].errors.required">
@@ -39,6 +41,8 @@
                 <select class="form-control" formControlName="mere">
                     <option disabled [ngValue]=null>Choisir une mère</option>
                     <option *ngFor="let parent of sexefilter(this.parents, ['F','A'])" [ngValue]=parent>{{parent?.nom?.text}} - {{parent?.prenoms}}
+                    </option>
+                    <option  [ngValue]=PARENT>{{PARENT?.nom?.text}} - {{PARENT?.prenoms}}
                     </option>
                 </select>
                 <div *ngIf="oneForm.controls['mere'].invalid && (oneForm.controls['mere'].dirty || oneForm.controls['mere'].touched)" class="alert alert-dclaner">

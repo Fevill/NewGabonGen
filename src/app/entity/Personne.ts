@@ -35,10 +35,10 @@ export class Personne {
     clan: Clan;
 
     /** Parents et enfants */
-    @ManyToOne(() => Personne, clan => clan.enfants, { cascade: true })
+    @ManyToOne(() => Personne, clan => clan.enfants, { cascade: true,nullable: true })
     pere: Personne;
 
-    @ManyToOne(() => Personne, clan => clan.enfants, { cascade: true })
+    @ManyToOne(() => Personne, clan => clan.enfants, { cascade: true,nullable: true })
     mere: Personne;
 
     @OneToMany(() => Personne, personne => personne.pere)

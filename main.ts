@@ -2,7 +2,8 @@ import { app, BrowserWindow, screen, ipcMain } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
-import { createConnection } from 'typeorm';
+import { createConnection,getConnection } from 'typeorm';
+//import {Clan, Personne,DureeDeVie,Nom,Profession} from './dist/app/entity';
 import {Clan, Personne,DureeDeVie,Nom,Profession} from './src/app/entity';
 import { addClan, getClans, deleteClan, updateClan } from './mainClanDbService';
 import { addPersonne, getPersonnes, deletePersonne, updatePersonne,getPersonneDetail } from './mainPersonneDbService';
@@ -10,6 +11,8 @@ import { addPersonne, getPersonnes, deletePersonne, updatePersonne,getPersonneDe
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
+let fileName = 'database.sqlite';
+let dbpat = `${process.env.NODE_ENV === 'dev' ? `./src/assets/data/${fileName}` : app.getPath('userData')}/data/${fileName}`;
 let win: BrowserWindow = null;
 
 const args = process.argv.slice(1),
@@ -20,6 +23,7 @@ const createWindow = async () => {
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
   let  clanRepo;
   let personneRepo;
+  console.log(app.getPath('userData'))
   
   /**Connexion à la BD */
   const connection = createConnection({
@@ -27,7 +31,7 @@ const createWindow = async () => {
     synchronize: true,
     logging: true,
     logger: 'simple-console',
-    database: './src/assets/data/database.sqlite',
+    database: `${dbpat}`, 
     entities: [ Clan, Personne,DureeDeVie,Nom,Profession ]
   });
 
